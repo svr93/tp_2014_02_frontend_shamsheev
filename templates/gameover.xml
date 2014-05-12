@@ -1,0 +1,13 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+	
+	<div class="gameover">
+		<div class="gameover__score"><fest:value>json.score</fest:value></div>
+		<form action="/scores" method="post" class="gameover__form">
+			<input type="text" maxlength="30" placeholder="Introduce yourself" name="name"/>
+			<input type="text" name="score" value="{json.score}" style="display: none"/>
+			<input type="submit" value="Save my result" name="name" />
+		</form>
+		<div class="gameover__status"></div>
+	</div>
+
+</fest:template>

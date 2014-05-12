@@ -1,0 +1,51 @@
+.game {
+	background-color: grey;
+	background-image: url('../images/sky.jpg');
+	background-size: 100% 100%;
+	position: relative;
+}
+
+	.game__back-button {
+		color: black;
+		font-style: italic;
+		font-size: 15pt;
+		text-decoration: none;
+		margin-left: 90%;
+	}
+
+	.game__main-button {
+		font-style: italic;
+		font-size: 35pt;
+		position: absolute;
+		top : 300px;
+		left: 250px;
+	}
+
+	.game__main-button:hover,
+	.game__back-button:hover {
+		color: white;
+	}
+
+.gameover {
+	background-color: grey;
+	background-image: url('../images/finish.jpg');
+	background-size: 100% 100%;
+}
+
+	.gameover__score {
+		margin-left: 45%;
+		padding-top: 30%;
+		font-style: italic;
+		font-size: 70pt;
+	}
+
+	.gameover__form {
+		margin-top: 10%;
+		margin-left: 25%;
+	}
+
+	.gameover__status {
+		margin-left: 35%;
+		font-style: italic;
+		color: red;
+	}

@@ -1,0 +1,91 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+<fest:doctype>html</fest:doctype>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            <fest:value>json.title</fest:value>
+        </title>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+    </head>
+    <body>
+        <div id="page"></div>
+
+        <fest:if test="json.development">
+            <script data-main="js/main" src="js/lib/require.js"></script>
+        </fest:if>
+
+        <fest:if test="!json.development">
+            <div id="index__container">
+                <div id="index__container__progress-bar" style="width:{json.percent}"></div>
+                <div id="index__percent" ><fest:value>
+                    json.percent
+                </fest:value></div>
+            </div>
+
+            <script>
+            	var urlArray = [
+                    'images/404.jpg',
+                    'images/finish.jpg',
+                    'images/robin_reversed.png',
+                    'images/bird1.png',
+                    'images/seawave.png',
+                    'images/bird.jpg',
+                    'images/player.png',
+                    'images/sky.jpg',
+                    'images/black-36087_640.png',
+                    'images/progress.jpg',
+                    'images/windsurfing_main.jpg',
+                    'images/figure_all.jpg',
+                    'images/robin.png',
+                    'images/windsurfing_scoreboard.jpg'
+                ];
+
+                var loadedSize = 1;
+
+                function getImages (url) {
+                    if (url !== undefined) {
+                        var method = 'GET';
+	                    var xhr = new XMLHttpRequest();
+                
+                        xhr.onreadystatechange = function() {
+                            var percent = Math.round((this.response.length + loadedSize) * 100 / (2796 * 1024));
+                            console.log(percent);
+
+                            document.getElementById('index__percent').innerHTML = percent + '%';
+                            document.getElementById('index__container__progress-bar').style.width = percent + '%';
+
+                            if (this.readyState == 4) {
+                                document.head.innerHTML += '&lt;IMG src=' + url + ' style="display:none"&gt;';
+                        
+                                loadedSize += this.response.length;
+                                getImages(urlArray.pop());
+                            }
+                        }
+                        xhr.open(method, url, true);
+                        xhr.send();
+                    } else {
+                        document.getElementById('index__percent').innerHTML = "100%";
+                        document.getElementById('index__container__progress-bar').style.width = "100%";
+
+                        setTimeout(function() {
+                            document.getElementById('index__percent').innerHTML = "";
+                            document.getElementById('index__container__progress-bar').style.width = "0%";
+                        }, 500);
+                    }
+                }
+
+                getImages(urlArray.pop());                
+                console.time('loadScript');
+            </script>
+            <script src="js/build.min.js"></script>
+            <script>                    
+                require(['main'], function() {
+                    console.timeEnd('loadScript');
+                });
+            </script>
+        </fest:if>
+    </body>
+</html>
+</fest:template>

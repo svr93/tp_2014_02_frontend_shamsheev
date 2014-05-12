@@ -1,0 +1,23 @@
+/*@media screen and (max-width: 1024px) {
+*/	
+	body {
+		background-color: #00FFFF;
+	}
+
+	.joystick {
+			&__game-button {
+			color: black;
+			font-style: italic;
+			font-size: 35pt;
+			position: absolute;
+			left: 40%;
+			top: 50%;
+		}
+
+		&__dialog {
+			position: absolute;
+			left: 40%;
+			top: 50%;
+		}
+	}
+

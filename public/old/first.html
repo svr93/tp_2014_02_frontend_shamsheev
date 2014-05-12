@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf8">
+	<link rel="stylesheet" href="css/final.css"/>
+
+	<script src="http://localhost:8889/livereload.js"></script>
+	<script data-main="js/main" src="js/lib/require.js"></script>
+
+</head><body>
+	Hello, world!
+	<div id="page"></div>
+
+	<script type="text/javascript">
+		var $page = $('#page');
+		var gameName = 'Windserfing';
+
+		function showMainScreen() {
+			$page.html(mainTmpl({name : gameName}));
+			$page.find('.js-scoreboard').on('click', showScoreboardScreen);
+			$page.find('.js-game').on('click', showGameScreen);
+		}
+
+		function hideMainScreen() {
+			$page.find('.js-scoreboard').off();
+			$page.find('.js-game').off();
+		}
+
+		function showScoreboardScreen() {
+			hideMainScreen();
+			$page.html(scoreboardTmpl({name : gameName}));
+			$page.find('.js-main').on('click', function() {
+				hideScoreboardScreen();
+				showMainScreen();
+			});
+		}
+
+		function hideScoreboardScreen() {
+			$page.find('.js-main').off();
+		}
+
+		function showGameScreen() {
+			hideMainScreen();
+			$page.html(gameTmpl());
+			gameStart();
+			$page.find('.js-main').on('click', function() {
+				hideGameScreen();
+				showMainScreen();
+			});
+		}
+
+		function hideGameScreen() {
+			$page.find('.js-main').off();
+		}
+
+	</script>
+
+</body></html>

@@ -1,0 +1,230 @@
+$game-background-image: url('../images/sky.jpg');
+$gameover-background-image: url('../images/finish.jpg');
+$scoreboard-background-image: url('../images/windsurfing_scoreboard.jpg');
+$notfound-background-image: url('../images/404.jpg');
+$main-background-image: url('../images/windsurfing_main.jpg');
+
+.button {
+	color: black;
+	font-style: italic;
+	font-size: 15pt;
+	text-decoration: none;
+		
+	&:hover {
+		color: white;
+	}
+}
+
+.title {
+	font-weight: bold;
+	text-align: center;
+	font-size: 20pt;
+}
+
+@mixin window($url) {
+	height: 768px;
+	width: 768px;
+	margin: 2% auto;
+	background-color: grey;
+	background-size: 100% 100%;
+	background-image: $url;
+}
+
+.gamename {
+	font-style: italic;
+	font-size: 80pt;
+	text-align: center;
+}
+
+#index {
+
+    &__container {
+		width: 768px;
+		height: 15px;
+		position:absolute;
+
+        matgin-top: auto;
+		margin-left: auto;
+        margin-right: auto;
+        
+        top: 634px;
+        left: 0;
+        right: 0;
+        
+		/*left:510px;
+		top:634px;*/
+
+		&__progress-bar {
+			background-image: url('../images/progress.jpg');
+			height: 15px;
+		}
+	}
+	
+	&__percent {
+	    margin-left: 45%;
+	    font-size: 40pt;
+	}
+}
+
+.main {
+	@include window($main-background-image);
+
+	&__menu {
+		position: relative;
+		margin-top: 200px;
+		margin-left: 530px;
+
+		&__button {
+			@extend .button;
+		}
+
+		&__title {
+			@extend .title;
+		}
+
+		&__listopt {
+			list-style-type: none;
+			padding-left: 0;			
+		}	
+	}
+}
+
+.game {
+	@include window($game-background-image);
+	position: relative;
+
+	&__token {
+		color: black;
+		font-style: italic;
+		font-size: 15pt;
+		position: absolute;
+		top : 375px;
+		left: 310px;	
+	}
+
+	&__back-button {
+		@extend .button;
+		margin-left: 90%;
+	}
+
+	&__main-button {
+		@extend .button;
+		font-size: 35pt;
+		position: absolute;
+		top : 300px;
+		left: 250px;
+	}
+
+	&__dialog {
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background: rgba(0,0,0,0);
+		z-index: 99999;
+
+		&__choose {
+			position: absolute;
+			margin: 18% 10%;
+			width: 100%;
+		}
+
+		&__layout {
+			margin-left: 7%;
+			margin-right: 15%;
+		}
+	}
+
+	&__dialog > div {
+		/*background: #3399FF;*/
+		width: 550px;
+		height: 350px;
+		position: relative;
+		margin: 15% auto;
+		border: solid 1px black;
+		border-radius: 10px;
+	}
+}
+
+.gameover {
+	@include window($gameover-background-image);
+	
+	&__score {
+		margin-left: 45%;
+		padding-top: 30%;
+		font-style: italic;
+		font-size: 70pt;
+	}
+
+	&__form {
+		margin-top: 10%;
+		margin-left: 25%;
+	}
+
+	&__status {
+		margin-left: 35%;
+		font-style: italic;
+		color: red;
+	}
+}
+
+.scoreboard {
+	@include window($scoreboard-background-image);
+	position: relative;
+
+	&__title {
+		@extend .title;
+	}
+
+	&__top {	
+		border-spacing: 50px 10px;	 
+		margin: 0 auto;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	&__button {
+		margin-top: 150px;
+		margin-left: 650px;
+
+		&__back {
+			@extend .button;
+			position: absolute;
+			bottom: 50px;
+		}
+
+	}
+
+	&__container {
+		width: 100%;
+		height: 15px;
+
+		&__progress-bar {
+			background-image: url('../images/progress.jpg');
+			height: 15px;
+		}
+	}
+
+	&__percent {
+		margin-left: 45%;
+		font-size: 40pt;
+	}
+}
+
+.notfound {
+	@include window($notfound-background-image);
+}
+
+.error-message {
+	display: inline-block;
+	margin-top: 300px;
+	margin-left: 170px;
+	font-size: 30pt;
+}
+
+.error-number {
+	margin-top: 50px;
+	margin-left: 350px;
+	font-size: 40pt;
+}

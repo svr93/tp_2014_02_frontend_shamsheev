@@ -1,0 +1,24 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+<div class="main">
+
+	<div class="gamename"><fest:value output="text">
+		json.name
+	</fest:value></div>
+	
+	<div class="main__menu">
+		<p class="main__menu__title">Main Menu</p>
+<!--		
+		<div class="main__pagemenu__button">
+			<ul class="main__pagemenu__listopt">
+				<li><a href="#scoreboard" class="main__pagemenu__listitem">ScoreBoard</a></li>
+				<li><a href="#game" class="main__pagemenu__listitem">Game</a></li>
+			</ul>
+		</div>
+-->
+		<ul class="main__menu__listopt">
+			<li><a href="#scoreboard" class="main__menu__button">ScoreBoard</a></li>
+			<li><a href="#game" class="main__menu__button">Game</a></li>
+		</ul>
+	</div>
+</div>
+</fest:template>

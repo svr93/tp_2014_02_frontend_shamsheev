@@ -1,0 +1,20 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+	<div class="game">
+		<span><a href="#" class="game__back-button">Back</a></span>
+		
+		<div id="start-button" class="game__main-button">Start game</div>
+		<div id="resume-button" class="game__main-button">Resume game</div>
+		<div id="finish-button" class="game__main-button">Finish</div>
+		<div id="current-token" class="game__token"></div>
+
+		<canvas id="game-field">Update browser! LOL xD</canvas>
+
+		<div id="modal" class="game__dialog">
+			<div><div class="game__dialog__choose">
+				<img class="game__dialog__layout" src="../images/layout.png" />
+				<img class="game__dialog__joystick" src="../images/joystick.png" />
+			</div></div>
+		</div>
+	</div>
+
+</fest:template>

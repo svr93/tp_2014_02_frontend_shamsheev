@@ -1,0 +1,9 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+	<div class="scoreboard__container" align="center">
+		<div class="scoreboard__container__progress-bar" style="width:{json.percent}"></div>
+	</div>
+
+	<div class="scoreboard__percent"><fest:value>
+		json.percent
+	</fest:value></div>
+</fest:template>

@@ -13,7 +13,7 @@
 	<div class="joystick__dialog">
 		<form id="token-form" method="post">
 			<input type="text" id="token" placeholder="Put a token" name="token" size="10%"/>
-			<input type="submit" id="connect" value="Submit" size="10%"/>
+			<input type="submit" id="connect" value="SUBMIT!" size="10%"/>
 		</form>
 		<div id="message"></div>
 	</div>
